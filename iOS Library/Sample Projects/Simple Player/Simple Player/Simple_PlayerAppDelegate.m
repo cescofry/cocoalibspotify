@@ -32,8 +32,7 @@
 
 #import "Simple_PlayerAppDelegate.h"
 
-#error Please get an appkey.c file from developer.spotify.com and remove this error before building.
-#include "appkey.c"
+#include "MESpotifyApiKey.h"
 
 @implementation Simple_PlayerAppDelegate
 
@@ -53,7 +52,7 @@
 	[self.window makeKeyAndVisible];
 
 	NSError *error = nil;
-	[SPSession initializeSharedSessionWithApplicationKey:[NSData dataWithBytes:&g_appkey length:g_appkey_size]
+	[SPSession initializeSharedSessionWithApplicationKey:[MESpotifyApiKey APIKey]
 											   userAgent:@"com.spotify.SimplePlayer-iOS"
 										   loadingPolicy:SPAsyncLoadingManual
 												   error:&error];
